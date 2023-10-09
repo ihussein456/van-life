@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inter, sans-serif;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: #FFF7ED;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+}
+.navbar-links a{
+    margin-left: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar h1{
+    font-weight: 900;
+}
+
+.hero{
+    padding: 2rem 1rem;
+    color: white;
+    background-image: url("./assets/background-img.jpg");
+    height: 300px; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+}
+
+.hero button{
+    color: white;
+    background-color: #FF8C38;
+    border-radius: 15px;
+    border: none;
+    padding: 0.5rem 0rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+.hero p{
+    margin-top: 1rem;
+}
+
+.footer{
+    color: #AAAAAA;
+    background-color: #252525;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+.about{
+    padding: 2rem 1rem;
+    background-color: #FFF7ED;
+}
+
+.about h1{
+    margin-bottom: 1rem;
+}
+
+.about-explore{
+    background-color: #FFCC8D;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+}
+
+.about-explore button{
+    margin-top: 1rem;
+    color: white;
+    background-color: black;
+    padding: 1rem 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+}
