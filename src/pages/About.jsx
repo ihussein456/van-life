@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 import img from "../assets/About-img.jpg"
 
 function About() {
@@ -18,7 +18,6 @@ function About() {
                     <button>Explore our vans</button>
                 </div>
             </div>
-            <Footer/>
         </div>
      );
 }

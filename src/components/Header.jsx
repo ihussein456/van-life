@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Header() {
     return ( 
         <div className="navbar">
             <h1><Link to="./">#VANLIFE</Link></h1>
             <div className="navbar-links">
-                <Link to="/About">About</Link>
-                <Link to="/Vans">Vans</Link>
+                <Link to="/host">Host</Link>
+                <Link to="/about">About</Link>
+                <Link to="/vans">Vans</Link>
             </div>
         </div>
      );
 }
 
-export default Nav;
+export default Header;
