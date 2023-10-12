@@ -8,6 +8,7 @@ import Layout from "./components/Layout.jsx"
 import Dashboard from "./pages/host/Dashboard.jsx"
 import Reviews from "./pages/host/Reviews.jsx"
 import Income from "./pages/host/Income.jsx"
+import HostLayout from "./pages/host/HostLayout.jsx"
 
 
 function App() {
@@ -20,9 +21,10 @@ function App() {
             <Route path="/vans" element={<Vans/>}/>
             <Route path="/vans/:id" element={<VanDetail/>}/>
             
-            <Route path="/host" element={<Dashboard/>}>
-              <Route path="/host/reviews" element={<Reviews/>}/>
-              <Route path="/host/income" element={<Income/>}/>
+            <Route path="host" element={<HostLayout/>}>
+              <Route index element={<Dashboard/>}/>
+              <Route path="reviews" element={<Reviews/>}/>
+              <Route path="income" element={<Income/>}/>
             </Route>
 
           </Route>
