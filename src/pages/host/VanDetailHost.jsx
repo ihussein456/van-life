@@ -20,31 +20,26 @@ function VanDetailHost() {
         textDecoration: "underline",
         color: "#161616"
     }
-    /*    
-    description: "The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!"
-    id: "1"
-    imageUrl: "https://assets.scrimba.com/advanced-react/react-router/modest-explorer.png"
-    name: "Modest Explorer"
-    price: 60
-    type: "simple"
-*/
+
 
 
     return ( 
-        <div>
+        <div className="van-container">
             <Link to="../vans">Back to dashboard</Link>
 
             <div>
             { vanDetail?
                     
-                (<div>
-                    <img src={vanDetail.imageUrl}alt="" />
-                    <div>
-                        <p>{vanDetail.type}</p>
-                        <h1>{vanDetail.name}</h1>
-                        <p><span className="bold">{vanDetail.price}</span>/day</p>
+                (<div className="host-van2">
+                    <div className="host-van-flex">
+                        <img className="host-van-img2" src={vanDetail.imageUrl}alt="" />
+                        <div>
+                        <i className={`van-type ${vanDetail.type} selected`}>{vanDetail.type}</i>
+                            <h3>{vanDetail.name}</h3>
+                            <p><span className="bold">£{vanDetail.price}</span>/day</p>
+                        </div>
                     </div>
-                    <nav>
+                    <nav className="host-info-nav">
                         <NavLink 
                             to=""
                             end  //for First index element so doesnt break css

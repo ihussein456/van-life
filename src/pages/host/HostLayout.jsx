@@ -10,7 +10,7 @@ function HostLayout() {
 
     return ( 
         <div>
-            <nav>
+            <nav className="host-nav">
                 <NavLink 
                     to="."
                     end

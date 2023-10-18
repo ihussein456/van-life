@@ -15,12 +15,12 @@ function VansHost() {
       }, []);
 
     const vanElements = vans.map(van => (
-        <div key={van.id}>
-            <Link to={`${van.id}`}>
-                <img src={van.imageUrl}/>
+        <div className="host-van2" key={van.id}>
+            <Link className="host-van-flex" to={`${van.id}`}>
+                <img className="host-van-img" src={van.imageUrl}/>
                 <div>
-                    <h1>{van.name}</h1>
-                    <p>{van.price}</p>
+                    <h4>{van.name}</h4>
+                    <p>£{van.price}/day</p>
                 </div>
             </Link>
 
@@ -28,8 +28,8 @@ function VansHost() {
     ))
 
     return ( 
-        <div>
-            <h1>Your Listed Vans</h1>
+        <div className="van-container">
+            <h2>Your Listed Vans</h2>
             {vans.length > 0 ?
                ( <div>
                     {vanElements}
