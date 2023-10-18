@@ -1,5 +1,7 @@
 import Footer from "../components/Footer";
 import img from "../assets/About-img.jpg"
+import { Link } from "react-router-dom";
+
 
 function About() {
     return ( 
@@ -15,7 +17,7 @@ function About() {
                 <div className="about-explore">
                     <h3>Your destination is waiting.</h3> 
                     <h3>Your van is waiting.</h3>
-                    <button>Explore our vans</button>
+                    <Link to="/vans"><button>Explore our vans</button></Link>
                 </div>
             </div>
         </div>
