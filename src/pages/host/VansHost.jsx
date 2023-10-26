@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getVanHost } from "../../api";
 
-
+export function loader(){
+    return getVanHost()
+}
 
 function VansHost() {
-    const [vans, setVans] = useState([])
+    //const [vans, setVans] = useState([])
 
-    useEffect(() => {
-        fetch("/api/host/vans")
-          .then((res) => res.json())
-          .then((data) => {
-            setVans(data.vans)
-        });
-      }, []);
+    const vans = useLoaderData()
+    
 
     const vanElements = vans.map(van => (
         <div className="host-van2" key={van.id}>
@@ -30,13 +28,9 @@ function VansHost() {
     return ( 
         <div className="van-container">
             <h2>Your Listed Vans</h2>
-            {vans.length > 0 ?
-               ( <div>
+                <div>
                     {vanElements}
-                </div> )
-               :
-               ( <h1>Loading...</h1>)
-            }
+                </div> 
         </div>
      );
 }

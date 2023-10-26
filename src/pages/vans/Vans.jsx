@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
-import { getVans } from "../../getVans.js" 
+import { getVans } from "../../api.js" 
 
 export function loader(){
     return getVans()     //Loads the data instead of useEffect W

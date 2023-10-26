@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router";
+import { Outlet, useLoaderData, useParams } from "react-router";
 import { Link, NavLink } from "react-router-dom";
+import { getVanHostDetail } from "../../api";
+
+export function loader({params}){
+    return getVanHostDetail(params)
+}
 
 function VanDetailHost() {
-    const params = useParams()
-    const [vanDetail, setVanDetail] = useState("")
+    //const params = useParams()
+    //const [vanDetail, setVanDetail] = useState("")
 
-    useEffect(()=> {
-        fetch(`/api/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => {
-                setVanDetail(data.vans)
-
-            })
-    }, [params.id])
+    const vanDetail = useLoaderData()
 
     const activeStyling = {
         fontWeight: "bold",
@@ -28,9 +26,9 @@ function VanDetailHost() {
             <Link to="../vans"> &larr; Back to dashboard</Link>
 
             <div>
-            { vanDetail?
+            
                     
-                (<div className="host-van2">
+                <div className="host-van2">
                     <div className="host-van-flex">
                         <img className="host-van-img2" src={vanDetail.imageUrl}alt="" />
                         <div>
@@ -58,10 +56,8 @@ function VanDetailHost() {
                         
                     </nav>
                     <Outlet context={vanDetail}/>
-                </div>) 
-                :
-                (<h1>Loading...</h1>)
-            }
+                </div>
+                
             </div>
         </div>
      );
