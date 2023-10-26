@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import img from "../assets/About-img.jpg"
 import { Link } from "react-router-dom";
 

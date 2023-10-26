@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import { getVans } from "../../getVans.js" 
+
+export function loader(){
+    return getVans()     //Loads the data instead of useEffect W
+}
 
 function Vans() {
-    const [vans, setVans] = useState([])
-    const [vanLoad, setVanLoad] = useState(null)
-
-    useEffect(() => {
-        fetch("/api/vans")
-          .then((res) => res.json())
-          .then((data) => {
-            setVans(data.vans)
-            setVanLoad(data.vans)
-        });
-      }, []);
+    const [searchParams, setSearchParams] = useSearchParams() //Used to filter through the content
+    const vans = useLoaderData() // Loader data saved in the vans variable
+    const typeFilter = searchParams.get("type")  //Gets the type of the van for search param
+   
+    const displayedVans = typeFilter
+        ? vans.filter(van => van.type === typeFilter)    //Allows us to filter through the vans 
+        : vans
     
-    const vanElements = vans.map(van => (
+    const vanElements = displayedVans.map(van => (
         <div key= {van.id} className="van-title">
-            <Link to={`/vans/${van.id}`}>
+            <Link to={`./${van.id}`} state={{search: typeFilter}}>
                 <img src={van.imageUrl} alt="" />
                 <div className="van-info">
                     <h3>{van.name}</h3>
@@ -31,11 +32,36 @@ function Vans() {
         <div>
             <div className="van-container">
             <h1>Explore our van options</h1>
+            <div>
+                <button 
+                    className={`van-type luxury ${typeFilter ==="luxury"? "selected": ""}`}
+                    onClick={() => setSearchParams({type: "luxury"})}
+                    >Luxury
+                </button>
+                <button 
+                    className={`van-type simple ${typeFilter ==="simple"? "selected": ""}`}
+                    onClick={() => setSearchParams({type: "simple"})}
+                    >Simple
+                </button>
+                <button 
+                    className={`van-type rugged ${typeFilter ==="rugged"? "selected": ""}`}
+                    onClick={() => setSearchParams({type: "rugged"})}
+                    >Rugged
+                </button>
+                {typeFilter? 
+                    (<button 
+                        className="van-type clear-filters"
+                        onClick={() => setSearchParams({})}
+                        >Clear Filter
+                    </button>) 
+                    : null
+                }
 
-                {vanLoad? (
+            </div>
+
                 <div className="vans">
                     {vanElements}
-                </div>) : <h2>Loading...</h2>}
+                </div>
             </div>
         </div>
      );

@@ -25,7 +25,7 @@ function VanDetailHost() {
 
     return ( 
         <div className="van-container">
-            <Link to="../vans">Back to dashboard</Link>
+            <Link to="../vans"> &larr; Back to dashboard</Link>
 
             <div>
             { vanDetail?
