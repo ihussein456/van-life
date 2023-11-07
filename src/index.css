@@ -67,7 +67,7 @@ body{
     background-color: #252525;
     text-align: center;
     padding: 1rem 0;
-    margin-top: 1rem;
+    margin-top: 10px;
     
 }
 
@@ -316,4 +316,60 @@ a{
     margin-top: 22px;
     color: white;
     font-family: "Inter", sans-serif;
+}
+
+@media (min-width: 800px) {
+    .hero{
+        height: 79vh;
+        justify-content: center;
+        text-align: center;
+        padding: 0px 10rem;
+        overflow: hidden;
+    }
+    .hero h1{
+        font-size: 3rem;
+        padding-inline: 1rem;
+    }
+    .hero p{
+        font-size: 24px;
+    }
+    .vans{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .van-container{
+        padding-inline: 6rem
+    }
+    .navbar{
+        padding-inline: 6rem;
+    }
+    .van-detail{
+        display: flex;
+        gap: 10%;
+    }
+    .van-info-img{
+        height: 500px;
+    }
+    .van-info{
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .van-info h2{
+        font-size: 2.5rem;
+    }
+    .van-info p{
+        font-size: 18px;
+    }
+    .van-info i{
+        font-size: 2rem;
+    }
+    .button{
+        font-size: 1rem;
+    }
+    .host-nav{
+        padding-inline: 6rem;
+    }
+    .van-buttons button +  button{
+        margin-left: 2rem;
+    }
+    
 }

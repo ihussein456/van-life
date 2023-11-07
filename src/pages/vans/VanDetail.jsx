@@ -18,14 +18,13 @@ function VanDetail() {
     
     return ( 
         <div className="van-container">
-            <h1>Van Detail goes here</h1>
             <Link 
             to={location.state.search? `/vans?type=${location.state.search}` : "/vans"}
 
             > &larr; Back to {location.state.search? location.state.search: "all"} vans
             </Link>
             {vanInfo? (
-            <div>
+            <div className="van-detail">
                 <img className="van-info-img" src={vanInfo.imageUrl} alt="" />
                 <div className="van-info">
                     <i className={`van-type ${vanInfo.type} selected`}>{vanInfo.type}</i>

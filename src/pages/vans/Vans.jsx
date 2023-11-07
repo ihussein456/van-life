@@ -32,7 +32,7 @@ function Vans() {
         <div>
             <div className="van-container">
             <h1>Explore our van options</h1>
-            <div>
+            <div className="van-buttons">
                 <button 
                     className={`van-type luxury ${typeFilter ==="luxury"? "selected": ""}`}
                     onClick={() => setSearchParams({type: "luxury"})}
